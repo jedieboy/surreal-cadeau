@@ -1,1 +1,141 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --cream: #fbf6f2;
+  --blush: #f6e4e6;
+  --pink: #f2b8c6;
+  --rose: #a8405f;
+  --ink: #2b1a22;
+  --muted: #5a4550;
+  --gold: #b08d57;
+  --champagne: #e9d3b0;
+  --line: rgba(43, 26, 34, 0.12);
+  --serif: 'Cormorant Garamond', serif;
+  --script: 'Pinyon Script', cursive;
+  --sans: 'Jost', sans-serif;
+  --gutter: clamp(20px, 6vw, 96px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  color: var(--rose);
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+img {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
+/* Shared type */
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 4.6vw, 64px);
+  line-height: 1.05;
+}
+
+.accent {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.link-line {
+  display: inline-flex;
+  gap: 12px;
+  margin-top: 30px;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+}
+
+.link-line:hover {
+  color: var(--rose);
+}
+
+.round-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(43, 26, 34, 0.3);
+  background: transparent;
+  color: var(--ink);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.round-btn:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* Scroll reveal (driven by RevealDirective) */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.9s ease var(--rv-delay, 0ms),
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--rv-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal='up'] { transform: translate3d(0, 48px, 0); }
+[data-reveal='left'] { transform: translate3d(60px, 0, 0); }
+[data-reveal='right'] { transform: translate3d(-60px, 0, 0); }
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
